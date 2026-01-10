@@ -40,22 +40,52 @@ export const EXPERIENCE: Job[] = [
 
 export const PROJECTS: Project[] = [
   {
-    title: "Gemini UI Wrapper",
-    description: "A clean, efficient wrapper around Google's Gemini API for React developers.",
-    link: "https://github.com/notkainoa",
-    tech: ["TypeScript", "AI", "Node.js"]
+    title: "Raceday",
+    description: "Get insights on your training to perform at your best on raceday.",
+    link: "https://github.com/notkainoa/mind-miles",
+    tech: ["Mobile app", "In development", "Open Source"]
   },
   {
-    title: "Minimal Folio",
-    description: "A lightweight portfolio template designed for speed and accessibility.",
-    link: "https://github.com/notkainoa",
-    tech: ["React", "Tailwind"]
+    title: "Sleep Share",
+    description: "Strava but for sleep. Keep your friends accountable!",
+    link: "https://github.com/notkainoa/Sleep-Share",
+    tech: ["Mobile app", "In development", "Open Source"]
   },
   {
-    title: "DevTools Pro",
-    description: "Browser extension helping developers debug React rendering issues.",
-    link: "#",
-    tech: ["Chrome Extension", "Performance"]
+    title: "Run Utils",
+    description: "Collection of running related utilities.",
+    link: "https://github.com/notkainoa/Running-Tools",
+    tech: ["Mobile app", "Open Source"]
+  },
+  {
+    title: "Bay Clock",
+    description: "Shows your personal school schedule, for Bay school sf.",
+    link: "https://github.com/lucaskchang/bay-clock-3",
+    tech: ["Web app", "Open Source"]
+  },
+  {
+    title: "Draw",
+    description: "Excalidraw plus but its free and open source.",
+    link: "https://github.com/notkainoa/draw",
+    tech: ["Excalidraw", "Web app", "Open Source"]
+  },
+  {
+    title: "Emblemic",
+    description: "Browser-based app icon designer with pixel art tools, gradients, and noise textures.",
+    link: "https://github.com/notkainoa/Emblemic",
+    tech: ["Web app", "Open Source"]
+  },
+  {
+    title: "Athletic.net Data Extractor",
+    description: "Chrome extension to copy or download race results from athletic.net with one click.",
+    link: "https://github.com/notkainoa/athletic.net-data-extractor",
+    tech: ["Chrome Extension", "Open Source"]
+  },
+  {
+    title: "Google Stitch Image Paste",
+    description: "Chrome extension that lets you paste images straight into stitch.withgoogle.com for instant uploads.",
+    link: "https://github.com/notkainoa/Google-Stitch-Image-Paste",
+    tech: ["Chrome Extension", "Open Source"]
   }
 ];
 
