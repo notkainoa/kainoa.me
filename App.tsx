@@ -2,7 +2,6 @@ import React from 'react';
 import { NAME, TAGLINE, ABOUT, EXPERIENCE, PROJECTS, SOCIALS } from './constants';
 import { WorkList } from './components/WorkList';
 import { ProjectList } from './components/ProjectList';
-import { GeminiChat } from './components/GeminiChat';
 
 const App: React.FC = () => {
   return (
@@ -86,9 +85,6 @@ const App: React.FC = () => {
         </footer>
 
       </main>
-
-      {/* Floating AI Interaction */}
-      <GeminiChat />
     </div>
   );
 };

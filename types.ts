@@ -19,9 +19,3 @@ export interface Social {
   url: string;
   handle: string;
 }
-
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-  isLoading?: boolean;
-}
