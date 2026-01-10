@@ -5,10 +5,7 @@ export const TITLE = "Software Engineer";
 export const TAGLINE = "High School Student - Designing AI products that feel good to use.";
 
 export const ABOUT = `
-I am a software engineer passionate about building high-quality digital experiences. 
-I specialize in React, TypeScript, and modern web technologies. 
-I enjoy dissecting complex problems and turning them into simple, elegant interfaces.
-Currently, I'm focused on exploring the intersection of AI and UI/UX.
+I'm a student who's recently been obsessed with AI coding. It's become so easy to prototype new ideas in just minutes, magic!
 `;
 
 export const EXPERIENCE: Job[] = [
@@ -42,20 +39,18 @@ export const PROJECTS: Project[] = [
   {
     title: "Raceday",
     description: "Get insights on your training to perform at your best on raceday.",
-    link: "https://github.com/notkainoa/mind-miles",
-    tech: ["Mobile app", "In development", "Open Source"]
+    tech: ["Mobile app", "In development"]
   },
   {
     title: "Sleep Share",
     description: "Strava but for sleep. Keep your friends accountable!",
-    link: "https://github.com/notkainoa/Sleep-Share",
-    tech: ["Mobile app", "In development", "Open Source"]
+    link: "https://sleepshare.fun",
+    tech: ["Mobile app", "In development"]
   },
   {
     title: "Run Utils",
     description: "Collection of running related utilities.",
-    link: "https://github.com/notkainoa/Running-Tools",
-    tech: ["Mobile app", "Open Source"]
+    tech: ["Mobile app"]
   },
   {
     title: "Bay Clock",

@@ -10,7 +10,7 @@ export interface Job {
 export interface Project {
   title: string;
   description: string;
-  link: string;
+  link?: string;
   tech?: string[];
 }
 
