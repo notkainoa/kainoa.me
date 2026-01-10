@@ -2,10 +2,12 @@ import { Job, Project, Social } from './types';
 
 export const NAME = "Kainoa Newton";
 export const TITLE = "Software Engineer";
-export const TAGLINE = "High School Student - Designing AI products that feel good to use.";
+export const TAGLINE = "High School Student - Interested in AI Product/Dev";
 
 export const ABOUT = `
 I'm a student who's recently been obsessed with AI coding. It's become so easy to prototype new ideas in just minutes, magic!
+
+I've also been really interested in building products that integrate AI in a natural and intuitive way.
 `;
 
 export const EXPERIENCE: Job[] = [
