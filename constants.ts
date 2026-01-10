@@ -21,6 +21,14 @@ export const EXPERIENCE: Job[] = [
     link: "mailto:hello@kainoa.me"
   },
   {
+    company: "Emdash (unofficial)",
+    role: "Contributor",
+    start: "Present",
+    end: "",
+    description: "Thinking about, designing, and implementing useful features and functionality as an open source contributor.",
+    link: "#"
+  },
+  {
     company: "Gumloop",
     role: "Intern",
     start: "Jun 2025",
@@ -28,14 +36,6 @@ export const EXPERIENCE: Job[] = [
     description: "Gained proficiency in creating AI workflow automations in Gumloop.",
     link: "#"
   },
-  {
-    company: "Other Irrelevant Jobs",
-    role: "",
-    start: "",
-    end: "",
-    description: "",
-    link: "https://www.linkedin.com/in/kainoa-newton-36b193307/"
-  }
 ];
 
 export const PROJECTS: Project[] = [

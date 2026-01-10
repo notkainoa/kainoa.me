@@ -24,7 +24,7 @@ export const WorkList: React.FC<WorkListProps> = ({ jobs }) => {
                 {job.company}
               </h3>
               <span className="text-neutral-500 tabular-nums">
-                {job.start} — {job.end}
+                {job.end ? `${job.start} — ${job.end}` : job.start}
               </span>
             </div>
             <div className="text-neutral-400">
