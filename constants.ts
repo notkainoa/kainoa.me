@@ -2,7 +2,7 @@ import { Job, Project, Social } from './types';
 
 export const NAME = "Kainoa Newton";
 export const TITLE = "Software Engineer";
-export const TAGLINE = "Building accessible, high-performance web applications.";
+export const TAGLINE = "High School Student - Designing AI products that feel good to use.";
 
 export const ABOUT = `
 I am a software engineer passionate about building high-quality digital experiences. 

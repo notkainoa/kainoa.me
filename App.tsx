@@ -21,7 +21,7 @@ const App: React.FC = () => {
           <h1 className="font-medium text-white tracking-tight">
             {NAME}
           </h1>
-          <p className="text-neutral-400 leading-relaxed max-w-md">
+          <p className="text-neutral-400 leading-relaxed">
             {TAGLINE}
           </p>
         </header>
@@ -81,7 +81,8 @@ const App: React.FC = () => {
         {/* Footer */}
         <footer className="pt-12 border-t border-neutral-800/50 flex justify-between items-center text-neutral-600">
           <span>© {new Date().getFullYear()} {NAME}</span>
-          <span>NYC</span>
+          <span>SF
+</span>
         </footer>
 
       </main>
