@@ -29,7 +29,7 @@ export const EXPERIENCE: Job[] = [
     link: "#"
   },
   {
-    company: "Other Relevant Jobs",
+    company: "Other Irrelevant Jobs",
     role: "",
     start: "",
     end: "",
