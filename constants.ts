@@ -96,6 +96,11 @@ export const SOCIALS: Social[] = [
     handle: "Kainoa Newton"
   },
   {
+    name: "X/Twitter",
+    url: "https://x.com/kainoabhn",
+    handle: "@kainoabhn"
+  },
+  {
     name: "Email",
     url: "mailto:k@kainoa.me", // Placeholder
     handle: "k@kainoa.me"
