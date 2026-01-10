@@ -13,28 +13,28 @@ Currently, I'm focused on exploring the intersection of AI and UI/UX.
 
 export const EXPERIENCE: Job[] = [
   {
-    company: "Stealth Startup",
-    role: "Senior Frontend Engineer",
-    start: "2023",
-    end: "Present",
-    description: "Leading the frontend architecture using Next.js and Tailwind.",
+    company: "Your Company?",
+    role: "Intern",
+    start: "",
+    end: "",
+    description: "Contact me",
+    link: "mailto:hello@kainoa.me"
+  },
+  {
+    company: "Gumloop",
+    role: "Intern",
+    start: "Jun 2025",
+    end: "Aug 2025",
+    description: "Gained proficiency in creating AI workflow automations in Gumloop.",
     link: "#"
   },
   {
-    company: "Tech Corp",
-    role: "Software Engineer",
-    start: "2021",
-    end: "2023",
-    description: "Developed and maintained design systems used by 50+ engineers.",
-    link: "#"
-  },
-  {
-    company: "Open Source",
-    role: "Contributor",
-    start: "2020",
-    end: "Present",
-    description: "Contributing to various React ecosystem libraries.",
-    link: "https://github.com/notkainoa"
+    company: "Other Relevant Jobs",
+    role: "",
+    start: "",
+    end: "",
+    description: "",
+    link: "https://www.linkedin.com/in/kainoa-newton-36b193307/"
   }
 ];
 
