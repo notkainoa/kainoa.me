@@ -18,7 +18,7 @@ export const EXPERIENCE: Job[] = [
     start: "",
     end: "",
     description: "Contact me",
-    link: "mailto:hello@kainoa.me"
+    link: "mailto:k@kainoa.me"
   },
   {
     company: "Emdash (unofficial)",
@@ -102,7 +102,7 @@ export const SOCIALS: Social[] = [
   },
   {
     name: "Email",
-    url: "mailto:hello@kainoa.me", // Placeholder
-    handle: "hello@kainoa.me"
+    url: "mailto:k@kainoa.me", // Placeholder
+    handle: "k@kainoa.me"
   }
 ];
