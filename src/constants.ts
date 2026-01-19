@@ -1,4 +1,4 @@
-import { Job, Project, Social } from './types';
+import type { Job, Project, Social } from './types';
 
 export const NAME = "Kainoa Newton";
 export const TITLE = "Software Engineer";

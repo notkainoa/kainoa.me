@@ -1,9 +1,17 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kainoa Newton</title>
+    <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,7 +19,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+    <script is:inline>
       tailwind.config = {
         theme: {
           extend: {
@@ -29,7 +37,7 @@
         },
       }
     </script>
-    <style>
+    <style is:global>
       body {
         background-color: #171717; /* neutral-900 */
         color: #e5e5e5; /* neutral-200 */
@@ -51,19 +59,8 @@
         background: #525252; 
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+  </head>
   <body>
-    <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <slot />
+  </body>
 </html>

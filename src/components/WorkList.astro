@@ -1,0 +1,42 @@
+---
+import type { Job } from '../types';
+
+interface Props {
+  jobs: Job[];
+}
+
+const { jobs } = Astro.props;
+---
+
+<div class="flex flex-col gap-6">
+  {jobs.map((job, index) => {
+    const isYourCompany = job.company === "Your Company?";
+    const isPlaceholder = !job.start && !job.end;
+    return (
+      <a
+        key={index}
+        href={job.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`group block no-underline ${isPlaceholder ? 'opacity-75' : ''}`}
+      >
+        <div class="flex justify-between items-baseline mb-1">
+          <h3 class={`font-medium text-neutral-200 ${(isPlaceholder && !isYourCompany) || !isPlaceholder ? 'group-hover:text-blue-400 transition-colors' : ''} ${isPlaceholder ? 'text-neutral-400' : ''}`}>
+            {job.company}
+          </h3>
+          <span class="text-neutral-500 tabular-nums">
+            {job.end ? `${job.start} — ${job.end}` : job.start}
+          </span>
+        </div>
+        <div class="text-neutral-400">
+          {job.role}
+        </div>
+        {job.description && (
+          <div class={`text-neutral-500 mt-1 leading-relaxed max-w-[90%] ${isPlaceholder ? 'group-hover:text-blue-400 transition-colors' : ''}`}>
+            {job.description}
+          </div>
+        )}
+      </a>
+    );
+  })}
+</div>
