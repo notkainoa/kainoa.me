@@ -7,7 +7,7 @@ export const TAGLINE = "High School Student - Interested in AI Product/Dev";
 export const ABOUT = `
 I'm a student who's recently been obsessed with AI coding. It's become so easy to prototype new ideas in just minutes, magic!
 
-I've also been really interested in building products that integrate AI in a natural and intuitive way.
+I'm also interested in how we can build products around AI in ways that feel natural and intuitive.
 `;
 
 export const EXPERIENCE: Job[] = [
