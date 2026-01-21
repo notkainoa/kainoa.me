@@ -2,7 +2,7 @@ import { Job, Project, Social } from './types';
 
 export const NAME = "Kainoa Newton";
 export const TITLE = "Software Engineer";
-export const TAGLINE = "High School Student - Interested in AI Product/Dev";
+export const TAGLINE = "High School Student - Interested in AI Product";
 
 export const ABOUT = `
 I'm a student who's recently been obsessed with AI coding. It's become so easy to prototype new ideas in just minutes, magic!
