@@ -25,7 +25,7 @@ export const EXPERIENCE: Job[] = [
     start: "Present",
     end: "",
     description: "Thinking about, designing, and implementing useful features and functionality as an open source contributor.",
-    link: "#"
+    link: "https://emdash.sh"
   },
   {
     company: "Gumloop",
@@ -33,7 +33,7 @@ export const EXPERIENCE: Job[] = [
     start: "Jun 2025",
     end: "Aug 2025",
     description: "Gained proficiency in creating AI workflow automations in Gumloop.",
-    link: "#"
+    link: "https://www.gumloop.com"
   },
 ];
 
