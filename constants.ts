@@ -55,6 +55,12 @@ export const PROJECTS: Project[] = [
     tech: ["Mobile app"]
   },
   {
+    title: "kainoa.me",
+    description: "My personal portfolio website. You're looking at it right now!",
+    link: "https://github.com/notkainoa/kainoa.me",
+    tech: ["Web app", "Open Source"]
+  },
+  {
     title: "Bay Clock",
     description: "Shows your personal school schedule, for Bay school sf.",
     link: "https://github.com/lucaskchang/bay-clock-3",
