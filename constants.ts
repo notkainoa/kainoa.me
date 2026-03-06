@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "kainoa.me",
-    description: "My personal portfolio website. You're looking at it right now!",
+    description: "This portfolio website you're looking at right now!",
     link: "https://github.com/notkainoa/kainoa.me",
     tech: ["Web app", "Open Source"]
   },
