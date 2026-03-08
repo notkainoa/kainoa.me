@@ -31,7 +31,7 @@ export const WorkList: React.FC<WorkListProps> = ({ jobs, onCopyEmail }) => {
             >
               {/* Timeline dot */}
               <div className="relative shrink-0 w-[17px] h-[17px] z-10">
-                <div className="w-full h-full rounded-full border-[1.5px] border-neutral-600/80 bg-[#0a0a0a] group-hover:border-[#E5E5E5] group-hover:scale-110 group-hover:shadow-[0_0_8px_rgba(229,229,229,0.15)] transition-all duration-300 ease-out" />
+                <div className="w-full h-full rounded-full border-[1.5px] border-neutral-600/80 bg-[#161616] group-hover:border-[#E5E5E5] group-hover:scale-110 group-hover:shadow-[0_0_8px_rgba(229,229,229,0.15)] transition-all duration-300 ease-out" />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
