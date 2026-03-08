@@ -21,7 +21,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
     <Tag
       {...linkProps}
       className="project-card group flex flex-col gap-1 p-2.5 bg-neutral-800/40 border border-neutral-800 rounded hover:border-neutral-700 hover:bg-neutral-800/70 transition-all duration-200 no-underline cursor-pointer"
-      style={{ animationDelay: `${index * 50}ms` }}
+      style={{ animationDelay: `${200 + index * 50}ms` }}
     >
       <div className="flex items-center justify-between gap-1.5">
         <h3 className="font-normal text-[#E5E5E5] text-[16px] leading-none border-b border-[#A0A0A0] group-hover:border-[#E5E5E5] transition-colors duration-200 pb-0.5" style={{ fontWeight: '400', fontFeatureSettings: 'normal' }}>
@@ -58,7 +58,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
 
         return (
           <div key={section.key} className="flex flex-col gap-2">
-            <span className="font-worksans text-[#a0a0a0] text-[14px] font-normal leading-[28px]" style={{ fontFeatureSettings: 'normal', fontWeight: '400' }}>
+            <span className="font-worksans text-[#a0a0a0] text-[14px] font-normal leading-[28px] animate-in" style={{ fontFeatureSettings: 'normal', fontWeight: '400', animationDelay: '200ms' }}>
               {section.label}
             </span>
             <div className="flex flex-col gap-3">
@@ -79,7 +79,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-card group flex flex-col gap-1 p-2.5 bg-neutral-800/40 border border-neutral-800 rounded hover:border-neutral-700 hover:bg-neutral-800/70 transition-all duration-200 no-underline cursor-pointer"
-                  style={{ animationDelay: `${globalIndex * 50}ms` }}
+                  style={{ animationDelay: `${200 + globalIndex * 50}ms` }}
                 >
                   <div className="flex items-center justify-between gap-1.5">
                     <h3 className="font-normal text-[#A0A0A0] text-[14px] leading-none group-hover:text-[#E5E5E5] transition-colors duration-200" style={{ fontWeight: '400', fontFeatureSettings: 'normal' }}>
