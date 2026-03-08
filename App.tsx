@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { NAME, TAGLINE, ABOUT, ABOUT_LEAD, EXPERIENCE, PROJECTS, SOCIALS } from './constants';
 import { WorkList } from './components/WorkList';
 import { ProjectList } from './components/ProjectList';
@@ -130,6 +131,7 @@ const App: React.FC = () => {
           </div>
         </div>
       )}
+      <Analytics />
     </div>
   );
 };
