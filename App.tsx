@@ -4,22 +4,24 @@ import { WorkList } from './components/WorkList';
 import { ProjectList } from './components/ProjectList';
 
 const App: React.FC = () => {
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [toast, setToast] = useState<{ message: string; success: boolean } | null>(null);
 
   useEffect(() => {
-    if (toastMessage) {
-      const timer = setTimeout(() => setToastMessage(null), 2000);
+    if (toast) {
+      const timer = setTimeout(() => setToast(null), 2000);
       return () => clearTimeout(timer);
     }
-  }, [toastMessage]);
+  }, [toast]);
+
+  const emailAddress = SOCIALS.find((s) => s.name === "Email")?.handle;
 
   const handleCopyEmail = async (e: React.MouseEvent) => {
     e.preventDefault();
     try {
-      await navigator.clipboard.writeText("k@kainoa.me");
-      setToastMessage("Email copied to clipboard");
+      await navigator.clipboard.writeText(emailAddress ?? "");
+      setToast({ message: "Email copied to clipboard", success: true });
     } catch {
-      setToastMessage("Failed to copy email");
+      setToast({ message: "Failed to copy email", success: false });
     }
   };
 
@@ -109,13 +111,19 @@ const App: React.FC = () => {
 
       </main>
 
-      {toastMessage && (
+      {toast && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
           <div className="toast-enter bg-neutral-800 text-neutral-200 px-4 py-2.5 rounded-lg shadow-lg border border-neutral-700 flex items-center gap-2 text-sm">
-            <svg className="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 6L9 17l-5-5"/>
-            </svg>
-            {toastMessage}
+            {toast.success ? (
+              <svg className="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+            ) : (
+              <svg className="w-4 h-4 text-red-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+            )}
+            {toast.message}
           </div>
         </div>
       )}
