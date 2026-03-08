@@ -45,7 +45,7 @@ export const WorkList: React.FC<WorkListProps> = ({ jobs, onCopyEmail }) => {
                   </div>
                   {job.start && (
                     <span className="shrink-0 text-[#9a9a9a] text-[12.5px] tabular-nums leading-tight tracking-wide font-mono">
-                      {job.end ? `${job.start}–${job.end}` : job.start}
+                      {job.end ? `${job.start} - ${job.end}` : job.start}
                     </span>
                   )}
                 </div>
