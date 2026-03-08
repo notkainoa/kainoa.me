@@ -61,7 +61,7 @@ const App: React.FC = () => {
         </section>
 
         {/* Projects */}
-        <section>
+        <section className="-mx-6 px-6 sm:-mx-16 sm:px-16">
           <h2 className="text-neutral-500 uppercase tracking-widest mb-6">Projects</h2>
           <ProjectList projects={PROJECTS} />
         </section>

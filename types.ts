@@ -12,6 +12,7 @@ export interface Project {
   description: string;
   link?: string;
   tech?: string[];
+  category?: 'development' | 'projects' | 'oss';
 }
 
 export interface Social {
