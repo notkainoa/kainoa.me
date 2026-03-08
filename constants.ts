@@ -22,8 +22,8 @@ export const EXPERIENCE: Job[] = [
     link: "mailto:k@kainoa.me"
   },
   {
-    company: "Emdash (unofficial)",
-    role: "Contributor",
+    company: "Emdash",
+    role: "OSS Contributor (unofficial)",
     start: "Oct 2025",
     end: "Feb 2026",
     description: "Thinking up, designing, and implementing useful features and functionality as an open source contributor.",
