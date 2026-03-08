@@ -72,13 +72,12 @@ const App: React.FC = () => {
             <a href="https://x.com/kainoabhn" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4">@kainoabhn</a>
             {' or '}
             <a href="#" onClick={handleCopyEmail} className="hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4">k@kainoa.me</a>
-            .
             {' '}
             <a
               href="https://github.com/notkainoa"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#E5E5E5] hover:text-white transition-colors inline-flex items-center align-middle"
+              className="text-[#E5E5E5] hover:text-white transition-colors inline-flex items-center align-baseline"
               aria-label="GitHub"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-[18px] h-[18px]">
@@ -90,7 +89,7 @@ const App: React.FC = () => {
               href="https://www.linkedin.com/in/kainoa-newton-36b193307/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#E5E5E5] hover:text-white transition-colors inline-flex items-center align-middle"
+              className="text-[#E5E5E5] hover:text-white transition-colors inline-flex items-center align-baseline"
               aria-label="LinkedIn"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-[18px] h-[18px]">
