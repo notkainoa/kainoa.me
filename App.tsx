@@ -42,14 +42,14 @@ const App: React.FC = () => {
       <main className="max-w-[750px] mx-auto px-6 py-32 flex flex-col gap-[28px]">
         
         {/* Header / Intro */}
-        <header className="flex flex-col gap-6">
+        <header className="flex flex-col gap-6 animate-in">
           <h1 className="font-inter font-normal text-[#E5E5E5] leading-[28px]" style={{ fontFeatureSettings: '"calt", "case", "kern"', fontWeight: '400' }}>
             {NAME}
           </h1>
         </header>
 
         {/* About */}
-        <section>
+        <section className="animate-in" style={{ animationDelay: '100ms' }}>
           <div className="prose prose-invert prose-neutral max-w-none">
             <p className="text-[#E5E5E5] leading-[28px] whitespace-pre-line opacity-100">
               <span className="italic text-[17px] font-normal leading-[28px]" style={{ fontFamily: 'Newsreader, Signifier, Times, serif', fontFeatureSettings: 'normal', color: '#f2f2f2' }}>
@@ -61,18 +61,18 @@ const App: React.FC = () => {
         </section>
 
         {/* Projects */}
-        <section className="mt-7 mb-7 -mx-6 px-6 sm:-mx-16 sm:px-16">
+        <section className="mt-7 mb-7 -mx-6 px-6 sm:-mx-16 sm:px-16 animate-in" style={{ animationDelay: '200ms' }}>
           <ProjectList projects={PROJECTS} />
         </section>
 
         {/* Experience */}
-        <section className="mb-7">
+        <section className="mb-7 animate-in" style={{ animationDelay: '300ms' }}>
           <h2 className="font-inter text-[#E5E5E5] mb-7 leading-[28px] tracking-tight" style={{ fontWeight: '500', fontFeatureSettings: '"calt", "case", "kern"' }}>Experience</h2>
           <WorkList jobs={EXPERIENCE} onCopyEmail={handleCopyEmail} />
         </section>
 
         {/* Connect / Socials */}
-        <section>
+        <section className="animate-in" style={{ animationDelay: '400ms' }}>
           <h2 className="font-inter text-[#E5E5E5] mb-7 leading-[28px]" style={{ fontFeatureSettings: '"calt", "case", "kern"' }}>Connect</h2>
           <p className="text-[#E5E5E5] leading-[28px]">
             Reach me at{' '}
@@ -107,7 +107,7 @@ const App: React.FC = () => {
         </section>
         
         {/* Footer */}
-        <footer className="mt-7 pt-12 border-t border-neutral-800/50 flex justify-between items-center text-[#E5E5E5] text-[16px] leading-[28px]">
+        <footer className="mt-7 pt-12 border-t border-neutral-800/50 flex justify-between items-center text-[#E5E5E5] text-[16px] leading-[28px] animate-in" style={{ animationDelay: '500ms' }}>
           <span>{NAME}</span>
           <span>SF
 </span>
