@@ -9,9 +9,15 @@ interface WorkListProps {
 export const WorkList: React.FC<WorkListProps> = ({ jobs, onCopyEmail }) => {
   return (
     <div className="relative">
-      {/* Timeline line - runs through dot centers */}
-      <div className="absolute left-[8px] top-0 bottom-0 w-px bg-gradient-to-b from-neutral-600/50 via-neutral-700/35 to-transparent" />
-
+      {/* Single continuous gradient line behind all dots */}
+      <div
+        className="absolute left-[8px] w-px -z-0"
+        style={{
+          top: '8.5px',
+          bottom: '8.5px',
+          background: 'linear-gradient(to bottom, rgba(115,115,115,0.5) 0%, rgba(82,82,82,0.35) 50%, rgba(64,64,64,0.2) 100%)',
+        }}
+      />
       <div className="flex flex-col gap-[18px]">
         {jobs.map((job, index) => {
           const isYourCompany = job.company === "Your Company?";
