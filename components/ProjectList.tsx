@@ -24,7 +24,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
       style={{ animationDelay: `${index * 50}ms` }}
     >
       <div className="flex items-center justify-between gap-1.5">
-        <h3 className="font-normal text-[#E5E5E5] text-[13px] leading-[28px]" style={{ fontWeight: '400' }}>
+        <h3 className="font-normal text-[#E5E5E5] text-[16px] leading-[28px]" style={{ fontWeight: '400' }}>
           {project.title}
         </h3>
         {project.link && (
@@ -40,7 +40,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
         )}
       </div>
 
-      <p className="text-[#a0a0a0] text-[11px] leading-[28px]">
+      <p className="text-[#a0a0a0] text-[16px] leading-[28px]">
         {project.description}
       </p>
     </Tag>
@@ -58,7 +58,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
 
         return (
           <div key={section.key} className="flex flex-col gap-2">
-            <span className="font-worksans text-[#a0a0a0] text-[14px] uppercase font-normal leading-[28px]" style={{ fontFeatureSettings: 'normal', fontWeight: '400' }}>
+            <span className="font-worksans text-[#a0a0a0] text-[14px] font-normal leading-[28px]" style={{ fontFeatureSettings: 'normal', fontWeight: '400' }}>
               {section.label}
             </span>
             <div className="flex flex-col gap-1.5">

@@ -45,7 +45,7 @@ const App: React.FC = () => {
         <section>
           <div className="prose prose-invert prose-neutral max-w-none">
             <p className="text-[#E5E5E5] leading-[28px] whitespace-pre-line opacity-100">
-              <span className="italic text-[17px] font-normal leading-[28px]" style={{ fontFamily: 'Newsreader, Signifier, Times, serif', fontFeatureSettings: 'normal', color: '#f2f2f2' }}>
+              <span className="italic text-[16px] font-normal leading-[28px]" style={{ fontFamily: 'Newsreader, Signifier, Times, serif', fontFeatureSettings: 'normal', color: '#f2f2f2' }}>
                 {ABOUT_LEAD}
               </span>
               {" "}{ABOUT.trim()}
@@ -99,7 +99,7 @@ const App: React.FC = () => {
         </section>
         
         {/* Footer */}
-        <footer className="pt-12 border-t border-neutral-800/50 flex justify-between items-center text-[#E5E5E5] text-[14px] leading-[28px]">
+        <footer className="pt-12 border-t border-neutral-800/50 flex justify-between items-center text-[#E5E5E5] text-[16px] leading-[28px]">
           <span>{NAME}</span>
           <span>SF
 </span>
