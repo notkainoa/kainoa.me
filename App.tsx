@@ -17,8 +17,12 @@ const App: React.FC = () => {
 
   const handleCopyEmail = async (e: React.MouseEvent) => {
     e.preventDefault();
+    if (!emailAddress) {
+      setToast({ message: "Failed to copy email", success: false });
+      return;
+    }
     try {
-      await navigator.clipboard.writeText(emailAddress ?? "");
+      await navigator.clipboard.writeText(emailAddress);
       setToast({ message: "Email copied to clipboard", success: true });
     } catch {
       setToast({ message: "Failed to copy email", success: false });
