@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NAME, TAGLINE, ABOUT, EXPERIENCE, PROJECTS, SOCIALS } from './constants';
+import { NAME, TAGLINE, ABOUT, ABOUT_LEAD, EXPERIENCE, PROJECTS, SOCIALS } from './constants';
 import { WorkList } from './components/WorkList';
 import { ProjectList } from './components/ProjectList';
 
@@ -24,7 +24,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-900 text-neutral-200 font-sans selection:bg-neutral-700 selection:text-white">
+    <div className="min-h-screen bg-[#1A1A1A] text-neutral-200 font-sans text-base selection:bg-neutral-700 selection:text-white" style={{ fontFeatureSettings: '"frac", "kern", "ss02"' }}>
       {/* 
         Main Layout Constraints:
         - max-w-[600px] 
@@ -32,43 +32,41 @@ const App: React.FC = () => {
         - 128px margin block (py-32)
         - 24px margin inline (px-6)
       */}
-      <main className="max-w-[600px] mx-auto px-6 py-32 flex flex-col gap-16">
+      <main className="max-w-[750px] mx-auto px-6 py-32 flex flex-col gap-[28px]">
         
         {/* Header / Intro */}
         <header className="flex flex-col gap-6">
-          <h1 className="font-medium text-white tracking-tight">
+          <h1 className="font-inter font-normal text-[#E5E5E5] leading-[28px]" style={{ fontFeatureSettings: '"calt", "case", "kern"', fontWeight: '400' }}>
             {NAME}
           </h1>
-          <p className="text-neutral-400 leading-relaxed">
-            {TAGLINE}
-          </p>
         </header>
 
         {/* About */}
         <section>
-          <h2 className="text-neutral-500 uppercase tracking-widest mb-6">About</h2>
           <div className="prose prose-invert prose-neutral max-w-none">
-            <p className="text-neutral-400 leading-7 whitespace-pre-line">
-              {ABOUT.trim()}
+            <p className="text-[#E5E5E5] leading-[28px] whitespace-pre-line opacity-100">
+              <span className="italic text-[17px] font-normal leading-[28px]" style={{ fontFamily: 'Newsreader, Signifier, Times, serif', fontFeatureSettings: 'normal', color: '#f2f2f2' }}>
+                {ABOUT_LEAD}
+              </span>
+              {" "}{ABOUT.trim()}
             </p>
           </div>
         </section>
 
         {/* Experience */}
         <section>
-          <h2 className="text-neutral-500 uppercase tracking-widest mb-6">Experience</h2>
+          <h2 className="font-inter text-[#E5E5E5] mb-6 leading-[28px]" style={{ fontFeatureSettings: '"calt", "case", "kern"' }}>Experience</h2>
           <WorkList jobs={EXPERIENCE} onCopyEmail={handleCopyEmail} />
         </section>
 
         {/* Projects */}
-        <section className="-mx-6 px-6 sm:-mx-16 sm:px-16">
-          <h2 className="text-neutral-500 uppercase tracking-widest mb-6">Projects</h2>
+        <section className="-mx-6 px-6 sm:-mx-16 sm:px-16 mt-7 mb-7">
           <ProjectList projects={PROJECTS} />
         </section>
 
         {/* Connect / Socials */}
         <section>
-          <h2 className="text-neutral-500 uppercase tracking-widest mb-6">Connect</h2>
+          <h2 className="font-inter text-[#E5E5E5] mb-6 leading-[28px]" style={{ fontFeatureSettings: '"calt", "case", "kern"' }}>Connect</h2>
           <div className="flex flex-col gap-3">
             {SOCIALS.map((social) => {
               const isEmail = social.name === "Email";
@@ -79,14 +77,14 @@ const App: React.FC = () => {
                   target={isEmail ? undefined : "_blank"}
                   rel={isEmail ? undefined : "noopener noreferrer"}
                   onClick={isEmail ? handleCopyEmail : undefined}
-                  className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors group no-underline"
+                  className="flex items-center gap-3 text-[#E5E5E5] hover:text-white transition-colors group no-underline"
                 >
-                  <span className="min-w-[80px] text-neutral-500">{social.name}</span>
-                  <span className="group-hover:underline underline-offset-4 decoration-neutral-700">
+                  <span className="min-w-[80px] text-[#E5E5E5] leading-[28px]">{social.name}</span>
+                  <span className="group-hover:underline underline-offset-4 decoration-neutral-700 leading-[28px]">
                     {social.handle}
                   </span>
                   <svg 
-                    className="w-3 h-3 text-neutral-600 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" 
+                    className="w-3 h-3 text-[#E5E5E5] opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
@@ -101,8 +99,8 @@ const App: React.FC = () => {
         </section>
         
         {/* Footer */}
-        <footer className="pt-12 border-t border-neutral-800/50 flex justify-between items-center text-neutral-600">
-          <span>© {new Date().getFullYear()} {NAME}</span>
+        <footer className="pt-12 border-t border-neutral-800/50 flex justify-between items-center text-[#E5E5E5] text-[14px] leading-[28px]">
+          <span>{NAME}</span>
           <span>SF
 </span>
         </footer>

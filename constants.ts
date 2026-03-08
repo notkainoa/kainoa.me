@@ -5,10 +5,12 @@ export const TITLE = "Software Engineer";
 export const TAGLINE = "High School Student - Interested in AI Product";
 
 export const ABOUT = `
-I'm a student who's recently been obsessed with AI coding. It's become so easy to prototype new ideas in just minutes, magic!
+I'm a High School Student who's recently been obsessed with AI coding. It's become so easy to prototype new ideas in just minutes!
 
-I'm also interested in how we can build products around AI in ways that feel natural and intuitive.
+I've also been building/experimenting a lot with AI Coding Orchestration tools.
 `;
+
+export const ABOUT_LEAD = "Interested in AI product.";
 
 export const EXPERIENCE: Job[] = [
   {
@@ -85,20 +87,6 @@ export const PROJECTS: Project[] = [
     description: "Simple browser-based app icon designer/maker.",
     link: "https://github.com/notkainoa/Emblemic",
     tech: ["Web app"],
-    category: "projects"
-  },
-  {
-    title: "Athletic.net Data Extractor",
-    description: "Chrome extension to copy or download race results from athletic.net with one click.",
-    link: "https://github.com/notkainoa/athletic.net-data-extractor",
-    tech: ["Chrome Extension"],
-    category: "projects"
-  },
-  {
-    title: "Google Stitch Image Paste",
-    description: "Chrome extension that lets you paste images straight into stitch.withgoogle.com for instant uploads.",
-    link: "https://github.com/notkainoa/Google-Stitch-Image-Paste",
-    tech: ["Chrome Extension"],
     category: "projects"
   },
   // OSS

@@ -24,12 +24,12 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
       style={{ animationDelay: `${index * 50}ms` }}
     >
       <div className="flex items-center justify-between gap-1.5">
-        <h3 className="font-medium text-neutral-200 text-[13px] leading-tight">
+        <h3 className="font-normal text-[#E5E5E5] text-[13px] leading-[28px]" style={{ fontWeight: '400' }}>
           {project.title}
         </h3>
         {project.link && (
           <svg
-            className="w-2.5 h-2.5 text-neutral-600 shrink-0"
+            className="w-2.5 h-2.5 text-[#E5E5E5] shrink-0"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -40,7 +40,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
         )}
       </div>
 
-      <p className="text-neutral-500 text-[11px] leading-relaxed">
+      <p className="text-[#a0a0a0] text-[11px] leading-[28px]">
         {project.description}
       </p>
     </Tag>
@@ -58,7 +58,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
 
         return (
           <div key={section.key} className="flex flex-col gap-2">
-            <span className="text-neutral-600 text-[10px] uppercase tracking-widest font-medium">
+            <span className="font-worksans text-[#a0a0a0] text-[14px] uppercase font-normal leading-[28px]" style={{ fontFeatureSettings: 'normal', fontWeight: '400' }}>
               {section.label}
             </span>
             <div className="flex flex-col gap-1.5">
