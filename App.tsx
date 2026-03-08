@@ -59,8 +59,8 @@ const App: React.FC = () => {
         </section>
 
         {/* Experience */}
-        <section className="mb-7">
-          <h2 className="font-inter text-[#E5E5E5] mb-6 leading-[28px]" style={{ fontFeatureSettings: '"calt", "case", "kern"' }}>Experience</h2>
+        <section>
+          <h2 className="font-inter text-[#E5E5E5] mb-5 leading-[28px] tracking-tight" style={{ fontWeight: '500', fontFeatureSettings: '"calt", "case", "kern"' }}>Experience</h2>
           <WorkList jobs={EXPERIENCE} onCopyEmail={handleCopyEmail} />
         </section>
 
