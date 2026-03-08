@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NAME, TAGLINE, ABOUT, EXPERIENCE, PROJECTS, SOCIALS } from './constants';
 import { WorkList } from './components/WorkList';
 import { ProjectList } from './components/ProjectList';
 
 const App: React.FC = () => {
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (toastMessage) {
+      const timer = setTimeout(() => setToastMessage(null), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [toastMessage]);
+
+  const handleCopyEmail = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText("k@kainoa.me");
+      setToastMessage("Email copied to clipboard");
+    } catch {
+      setToastMessage("Failed to copy email");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-neutral-900 text-neutral-200 font-sans selection:bg-neutral-700 selection:text-white">
       {/* 
@@ -38,7 +57,7 @@ const App: React.FC = () => {
         {/* Experience */}
         <section>
           <h2 className="text-neutral-500 uppercase tracking-widest mb-6">Experience</h2>
-          <WorkList jobs={EXPERIENCE} />
+          <WorkList jobs={EXPERIENCE} onCopyEmail={handleCopyEmail} />
         </section>
 
         {/* Projects */}
@@ -51,29 +70,33 @@ const App: React.FC = () => {
         <section>
           <h2 className="text-neutral-500 uppercase tracking-widest mb-6">Connect</h2>
           <div className="flex flex-col gap-3">
-            {SOCIALS.map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors group no-underline"
-              >
-                <span className="min-w-[80px] text-neutral-500">{social.name}</span>
-                <span className="group-hover:underline underline-offset-4 decoration-neutral-700">
-                  {social.handle}
-                </span>
-                <svg 
-                  className="w-3 h-3 text-neutral-600 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2"
+            {SOCIALS.map((social) => {
+              const isEmail = social.name === "Email";
+              return (
+                <a
+                  key={social.name}
+                  href={isEmail ? "#" : social.url}
+                  target={isEmail ? undefined : "_blank"}
+                  rel={isEmail ? undefined : "noopener noreferrer"}
+                  onClick={isEmail ? handleCopyEmail : undefined}
+                  className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors group no-underline"
                 >
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-            ))}
+                  <span className="min-w-[80px] text-neutral-500">{social.name}</span>
+                  <span className="group-hover:underline underline-offset-4 decoration-neutral-700">
+                    {social.handle}
+                  </span>
+                  <svg 
+                    className="w-3 h-3 text-neutral-600 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              );
+            })}
           </div>
         </section>
         
@@ -85,6 +108,17 @@ const App: React.FC = () => {
         </footer>
 
       </main>
+
+      {toastMessage && (
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+          <div className="toast-enter bg-neutral-800 text-neutral-200 px-4 py-2.5 rounded-lg shadow-lg border border-neutral-700 flex items-center gap-2 text-sm">
+            <svg className="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+            {toastMessage}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

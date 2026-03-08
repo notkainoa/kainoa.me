@@ -3,9 +3,10 @@ import { Job } from '../types';
 
 interface WorkListProps {
   jobs: Job[];
+  onCopyEmail: (e: React.MouseEvent) => void;
 }
 
-export const WorkList: React.FC<WorkListProps> = ({ jobs }) => {
+export const WorkList: React.FC<WorkListProps> = ({ jobs, onCopyEmail }) => {
   return (
     <div className="flex flex-col gap-6">
       {jobs.map((job, index) => {
@@ -14,9 +15,10 @@ export const WorkList: React.FC<WorkListProps> = ({ jobs }) => {
         return (
           <a
             key={index}
-            href={job.link}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={isYourCompany ? "#" : job.link}
+            target={isYourCompany ? undefined : "_blank"}
+            rel={isYourCompany ? undefined : "noopener noreferrer"}
+            onClick={isYourCompany ? onCopyEmail : undefined}
             className={`group block no-underline ${isPlaceholder ? 'opacity-75' : ''}`}
           >
             <div className="flex justify-between items-baseline mb-1">
