@@ -24,7 +24,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
       style={{ animationDelay: `${index * 50}ms` }}
     >
       <div className="flex items-center justify-between gap-1.5">
-        <h3 className="font-normal text-[#E5E5E5] text-[16px] leading-[28px]" style={{ fontWeight: '400' }}>
+        <h3 className="font-normal text-[#E5E5E5] text-[16px] leading-none border-b border-[#A0A0A0] group-hover:border-[#E5E5E5] transition-colors duration-200 pb-0.5" style={{ fontWeight: '400', fontFeatureSettings: 'normal' }}>
           {project.title}
         </h3>
         {project.link && (
@@ -40,7 +40,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
         )}
       </div>
 
-      <p className="text-[#a0a0a0] text-[16px] leading-[28px]">
+      <p className="text-[#a0a0a0] text-[16px] leading-normal">
         {project.description}
       </p>
     </Tag>
@@ -51,7 +51,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   let globalIndex = 0;
 
   return (
-    <div className="grid grid-cols-3 gap-3">
+    <div className="grid grid-cols-3 gap-3 my-7">
       {SECTIONS.map((section) => {
         const sectionProjects = projects.filter((p) => p.category === section.category);
         if (sectionProjects.length === 0) return null;
@@ -61,7 +61,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
             <span className="font-worksans text-[#a0a0a0] text-[14px] font-normal leading-[28px]" style={{ fontFeatureSettings: 'normal', fontWeight: '400' }}>
               {section.label}
             </span>
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-3">
               {sectionProjects.map((project) => {
                 const card = (
                   <ProjectCard

@@ -7,7 +7,7 @@ export const TAGLINE = "High School Student - Interested in AI Product";
 export const ABOUT = `
 I'm a High School Student who's recently been obsessed with AI coding. It's become so easy to prototype new ideas in just minutes!
 
-I've also been building/experimenting a lot with AI Coding Orchestration tools.
+I've also been building / experimenting a lot with AI Coding Orchestration tools.
 `;
 
 export const ABOUT_LEAD = "Interested in AI product.";
@@ -43,13 +43,13 @@ export const PROJECTS: Project[] = [
   // In Development
   {
     title: "Raceday",
-    description: "Get insights on your training to perform at your best on raceday.",
+    description: "Get suggestions and insights to perform at your best on raceday.",
     tech: ["Mobile app"],
     category: "development"
   },
   {
     title: "Sleep Share",
-    description: "Strava but for sleep. Keep your friends accountable!",
+    description: "Strava but for sleep.",
     link: "https://sleepshare.fun",
     tech: ["Mobile app"],
     category: "development"
@@ -63,14 +63,14 @@ export const PROJECTS: Project[] = [
   // Projects
   {
     title: "kainoa.me",
-    description: "This portfolio website you're looking at right now!",
+    description: "This website.",
     link: "https://github.com/notkainoa/kainoa.me",
     tech: ["Web app"],
     category: "projects"
   },
   {
     title: "Bay Clock",
-    description: "Shows your personal school schedule, for Bay school sf.",
+    description: "Nice UI your personal school schedule.",
     link: "https://github.com/lucaskchang/bay-clock-3",
     tech: ["Web app"],
     category: "projects"
@@ -84,24 +84,24 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Emblemic",
-    description: "Simple browser-based app icon designer/maker.",
+    description: "Simple browser-based app icon designer.",
     link: "https://github.com/notkainoa/Emblemic",
     tech: ["Web app"],
     category: "projects"
   },
   // OSS
   {
-    title: "Emdash",
-    description: "Orchestrate cli coding agents through a terminal view.",
-    link: "https://emdash.sh",
-    tech: ["Web app"],
+    title: "T3 Code",
+    description: "A GUI for orchestrating coding agents.",
+    link: "https://github.com/t3dotgg/t3-code",
+    tech: ["VS Code Extension"],
     category: "oss"
   },
   {
-    title: "T3 Code",
-    description: "AI-powered coding assistant. Contributing to the open source ecosystem.",
-    link: "https://github.com/t3dotgg/t3-code",
-    tech: ["VS Code Extension"],
+    title: "Emdash",
+    description: "Orchestrate cli coding agents through terminal views.",
+    link: "https://emdash.sh",
+    tech: ["Web app"],
     category: "oss"
   }
 ];
