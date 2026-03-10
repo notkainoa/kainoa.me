@@ -11,7 +11,7 @@ export const WorkList: React.FC<WorkListProps> = ({ jobs, onCopyEmail }) => {
     <div className="relative">
       {/* Single continuous gradient line behind all dots */}
       <div
-        className="absolute left-[8px] w-px -z-0"
+        className="absolute left-[8px] w-px -z-0 mt-10 mb-10"
         style={{
           top: '8.5px',
           bottom: '8.5px',
