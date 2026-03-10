@@ -107,7 +107,7 @@ const App: React.FC = () => {
         </section>
         
         {/* Footer */}
-        <footer className="mt-7 pt-12 border-t border-neutral-800/50 flex justify-between items-center text-[#E5E5E5] text-[16px] leading-[28px] animate-in" style={{ animationDelay: '500ms' }}>
+        <footer className="mt-7 pt-12 border-t border-[#404040] flex justify-between items-center text-[#E5E5E5] text-[16px] leading-[28px] animate-in" style={{ animationDelay: '500ms' }}>
           <span>{NAME}</span>
           <span>SF
 </span>

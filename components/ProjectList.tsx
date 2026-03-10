@@ -51,13 +51,18 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   let globalIndex = 0;
 
   return (
-    <div className="grid grid-cols-3 gap-3 my-7">
+    <div className="grid grid-cols-1 gap-6 min-[365px]:grid-cols-2 min-[365px]:gap-3 min-[530px]:grid-cols-3 my-7">
       {SECTIONS.map((section) => {
         const sectionProjects = projects.filter((p) => p.category === section.category);
         if (sectionProjects.length === 0) return null;
 
+        const sectionClassName =
+          section.key === 'oss'
+            ? 'flex flex-col gap-2 min-[365px]:col-span-2 min-[530px]:col-span-1'
+            : 'flex flex-col gap-2';
+
         return (
-          <div key={section.key} className="flex flex-col gap-2">
+          <div key={section.key} className={sectionClassName}>
             <span className="font-worksans text-[#a0a0a0] text-[14px] font-normal leading-[28px] animate-in" style={{ fontFeatureSettings: 'normal', fontWeight: '400', animationDelay: '200ms' }}>
               {section.label}
             </span>
