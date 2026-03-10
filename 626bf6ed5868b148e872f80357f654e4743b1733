@@ -1,0 +1,23 @@
+components/WorkList.tsx
+  4cf1f591ffd58239 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.9",
+  "base_commit_sha": "626bf6ed5868b148e872f80357f654e4743b1733",
+  "prompts": {
+    "4cf1f591ffd58239": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "9e33e9cc-552b-4046-acd0-d3ade121484c",
+        "model": "default"
+      },
+      "human_author": "Kainoa Newton <k@kainoa.me>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
