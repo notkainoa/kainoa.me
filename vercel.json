@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/github", "destination": "https://github.com/notkainoa", "permanent": false },
+    { "source": "/x", "destination": "https://x.com/KainoaBHN", "permanent": false },
+    { "source": "/twitter", "destination": "https://x.com/KainoaBHN", "permanent": false },
+    { "source": "/linkedin", "destination": "https://www.linkedin.com/in/kainoa-newton-36b193307/", "permanent": false }
+  ]
+}
