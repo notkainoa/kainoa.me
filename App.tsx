@@ -6,6 +6,7 @@ import { ProjectList } from './components/ProjectList';
 
 const App: React.FC = () => {
   const [toast, setToast] = useState<{ message: string; success: boolean } | null>(null);
+  const [isEmailTooltipDismissed, setIsEmailTooltipDismissed] = useState(false);
 
   useEffect(() => {
     if (toast) {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
 
   const handleCopyEmail = async (e: React.MouseEvent) => {
     e.preventDefault();
+    setIsEmailTooltipDismissed(true);
     if (!emailAddress) {
       setToast({ message: "Failed to copy email", success: false });
       return;
@@ -83,11 +85,11 @@ const App: React.FC = () => {
               </span>
             </span>
             {' or '}
-            <span className="relative inline-flex group">
+            <span className="relative inline-flex group" onMouseEnter={() => setIsEmailTooltipDismissed(false)} onMouseLeave={() => setIsEmailTooltipDismissed(false)}>
               <button type="button" onClick={handleCopyEmail} aria-label="Copy email address" aria-describedby="email-copy-tooltip" className="cursor-pointer rounded-sm border-0 bg-transparent p-0 text-inherit hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400" style={{ font: 'inherit', lineHeight: 'inherit' }}>
                 k@kainoa.me
               </button>
-              <span id="email-copy-tooltip" role="tooltip" className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-lg border border-neutral-700 bg-neutral-800 px-3 py-1.5 text-sm text-neutral-200 opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
+              <span id="email-copy-tooltip" role="tooltip" className={`pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-lg border border-neutral-700 bg-neutral-800 px-3 py-1.5 text-sm text-neutral-200 opacity-0 shadow-lg transition-opacity duration-200 ${isEmailTooltipDismissed ? '' : 'group-hover:opacity-100'}`}>
                 click to copy
               </span>
             </span>
