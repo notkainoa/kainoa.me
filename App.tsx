@@ -85,7 +85,7 @@ const App: React.FC = () => {
               </span>
             </span>
             {' or '}
-            <span className="relative inline-flex group" onMouseEnter={() => setIsEmailTooltipDismissed(false)} onMouseLeave={() => setIsEmailTooltipDismissed(false)}>
+            <span className="relative inline-flex group" onMouseEnter={() => setIsEmailTooltipDismissed(false)}>
               <button type="button" onClick={handleCopyEmail} aria-label="Copy email address" aria-describedby="email-copy-tooltip" className="cursor-pointer rounded-sm border-0 bg-transparent p-0 text-inherit hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400" style={{ font: 'inherit', lineHeight: 'inherit' }}>
                 k@kainoa.me
               </button>
