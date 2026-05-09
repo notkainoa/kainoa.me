@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "SimplyBuild",
-    description: "Smart CLI wrapper for one-command iOS build, deploy, and launch.",
+    description: "Smart CLI wrapper for one-command ios simulator build, deploy, and launch.",
     link: "https://github.com/notkainoa/SimplyBuild",
     tech: ["CLI"],
     category: "projects"
