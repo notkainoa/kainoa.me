@@ -80,7 +80,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
               })}
               {section.category === 'projects' && (
                 <a
-                  href="https://github.com/notkainoa"
+                  href="https://github.com/notkainoa?tab=repositories&type=source"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-card group flex flex-col gap-1 p-2.5 bg-neutral-800/40 border border-neutral-800 rounded hover:border-neutral-700 hover:bg-neutral-800/70 transition-all duration-200 no-underline cursor-pointer"

@@ -89,6 +89,20 @@ export const PROJECTS: Project[] = [
     tech: ["Web app"],
     category: "projects"
   },
+  {
+    title: "SimplyBuild",
+    description: "Smart CLI wrapper for one-command ios simulator build, deploy, and launch.",
+    link: "https://github.com/notkainoa/SimplyBuild",
+    tech: ["CLI"],
+    category: "projects"
+  },
+  {
+    title: "more-minimal-twitter",
+    description: "A browser extension that makes X/Twitter cleaner and more customizable.",
+    link: "https://github.com/notkainoa/more-minimal-twitter",
+    tech: ["Browser extension"],
+    category: "projects"
+  },
   // OSS
   {
     title: "T3 Code",
