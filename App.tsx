@@ -17,8 +17,9 @@ const App: React.FC = () => {
 
   const emailAddress = SOCIALS.find((s) => s.name === "Email")?.handle;
 
-  const handleCopyEmail = async (e: React.MouseEvent) => {
+  const handleCopyEmail = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    e.currentTarget.blur();
     setIsEmailTooltipDismissed(true);
     if (!emailAddress) {
       setToast({ message: "Failed to copy email", success: false });
