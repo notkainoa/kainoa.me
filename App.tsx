@@ -84,7 +84,9 @@ const App: React.FC = () => {
             </span>
             {' or '}
             <span className="relative inline-flex group">
-              <a href="#" onClick={handleCopyEmail} aria-describedby="email-copy-tooltip" className="hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4">k@kainoa.me</a>
+              <button type="button" onClick={handleCopyEmail} aria-describedby="email-copy-tooltip" className="hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4">
+                k@kainoa.me
+              </button>
               <span id="email-copy-tooltip" role="tooltip" className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-lg border border-neutral-700 bg-neutral-800 px-3 py-1.5 text-sm text-neutral-200 opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
                 click to copy
               </span>
