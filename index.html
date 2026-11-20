@@ -107,6 +107,9 @@
         top: 0;
         left: 0;
         white-space: pre;
+        /* Hidden full-text words sit below the collapsed card; without this,
+           hovering that empty space would count as hovering the card. */
+        pointer-events: none;
         transform: translate(var(--ax), var(--ay));
         transition:
           transform 300ms var(--ease-in-out),
