@@ -1,14 +1,19 @@
 import React from 'react';
 import { Project } from '../types';
+import { DescriptionMorph } from './DescriptionMorph';
 
 interface ProjectListProps {
   projects: Project[];
 }
 
-const SECTIONS: { key: string; label: string; category: string }[] = [
-  { key: 'development', label: 'Building', category: 'development' },
-  { key: 'projects', label: 'Projects', category: 'projects' },
-  { key: 'oss', label: 'Open Source', category: 'oss' },
+// Three fixed columns from 640px up: the "Current" label sits over column 1 (column 2
+// continues Current without a label) and "Maintained" over column 3. Below 640px the
+// columns stack into one list, so column 2 follows column 1 directly and Maintained
+// gets extra space above it.
+const COLUMNS: { column: 1 | 2 | 3; label?: string; className: string }[] = [
+  { column: 1, label: 'Current', className: '' },
+  { column: 2, className: '' },
+  { column: 3, label: 'Maintained', className: 'mt-3 sm:mt-0' },
 ];
 
 const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
@@ -24,9 +29,16 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
       style={{ animationDelay: `${200 + index * 50}ms` }}
     >
       <div className="flex items-center justify-between gap-1.5">
-        <h3 className="font-normal text-[#E5E5E5] text-[16px] leading-none border-b border-[#A0A0A0] group-hover:border-[#E5E5E5] transition-colors duration-200 pb-0.5" style={{ fontWeight: '400', fontFeatureSettings: 'normal' }}>
-          {project.title}
-        </h3>
+        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 min-w-0">
+          <h3 className="font-normal text-[#E5E5E5] text-[16px] leading-none border-b border-[#A0A0A0] group-hover:border-[#E5E5E5] transition-colors duration-200 pb-0.5" style={{ fontWeight: '400', fontFeatureSettings: 'normal' }}>
+            {project.title}
+          </h3>
+          {project.status && (
+            <span className="shrink-0 font-worksans text-[#a0a0a0] text-[11px] leading-none px-1.5 py-[3px] border border-neutral-700 rounded-full whitespace-nowrap">
+              {project.status}
+            </span>
+          )}
+        </div>
         {project.link && (
           <svg
             className="w-2.5 h-2.5 text-[#E5E5E5] shrink-0"
@@ -40,9 +52,17 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
         )}
       </div>
 
-      <p className="text-[#a0a0a0] text-[16px] leading-normal">
-        {project.description}
-      </p>
+      {project.shortDescription ? (
+        <DescriptionMorph
+          short={project.shortDescription}
+          full={project.description}
+          className="text-[#a0a0a0] text-[16px] leading-normal"
+        />
+      ) : (
+        <p className="text-[#a0a0a0] text-[16px] leading-normal">
+          {project.description}
+        </p>
+      )}
     </Tag>
   );
 };
@@ -51,23 +71,22 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   let globalIndex = 0;
 
   return (
-    <div className="grid grid-cols-1 gap-6 min-[365px]:grid-cols-2 min-[365px]:gap-3 min-[530px]:grid-cols-3 my-7">
-      {SECTIONS.map((section) => {
-        const sectionProjects = projects.filter((p) => p.category === section.category);
-        if (sectionProjects.length === 0) return null;
-
-        const sectionClassName =
-          section.key === 'oss'
-            ? 'flex flex-col gap-2 min-[365px]:col-span-2 min-[530px]:col-span-1'
-            : 'flex flex-col gap-2';
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 my-7">
+      {COLUMNS.map((col) => {
+        const columnProjects = projects.filter((p) => p.column === col.column);
 
         return (
-          <div key={section.key} className={sectionClassName}>
-            <span className="font-worksans text-[#a0a0a0] text-[14px] font-normal leading-[28px] animate-in" style={{ fontFeatureSettings: 'normal', fontWeight: '400', animationDelay: '200ms' }}>
-              {section.label}
+          <div key={col.column} className={`flex flex-col gap-2 ${col.className}`}>
+            {/* Column 2 keeps an empty label row so its cards line up with column 1. */}
+            <span
+              className={`font-worksans text-[#a0a0a0] text-[14px] font-normal leading-[28px] animate-in ${col.label ? '' : 'hidden sm:block'}`}
+              style={{ fontFeatureSettings: 'normal', fontWeight: '400', animationDelay: '200ms' }}
+              aria-hidden={col.label ? undefined : true}
+            >
+              {col.label ?? '\u00a0'}
             </span>
             <div className="flex flex-col gap-3">
-              {sectionProjects.map((project) => {
+              {columnProjects.map((project) => {
                 const card = (
                   <ProjectCard
                     key={project.title}
@@ -78,7 +97,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                 globalIndex++;
                 return card;
               })}
-              {section.category === 'projects' && (
+              {col.column === 3 && (
                 <a
                   href="https://github.com/notkainoa?tab=repositories&type=source"
                   target="_blank"

@@ -84,6 +84,122 @@
         opacity: 0;
         animation: fade-up 0.35s ease-out forwards;
       }
+      /* Description morph (components/DescriptionMorph.tsx). Each word is absolutely
+         positioned at its spot in the short text (--ax/--ay) and moves to its spot
+         in the full text (--bx/--by) while the card is hovered or focused. */
+      .morph {
+        --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+        --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+        position: relative;
+        height: var(--h-short, auto);
+        transition: height 300ms var(--ease-in-out);
+      }
+      .morph-measure {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .morph-tok {
+        position: absolute;
+        top: 0;
+        left: 0;
+        white-space: pre;
+        transform: translate(var(--ax), var(--ay));
+        transition:
+          transform 300ms var(--ease-in-out),
+          opacity 150ms var(--ease-out);
+      }
+      /* Words only in the short text (and the "..."): visible at rest. On the way
+         back they return after the shared words have slid home. */
+      .morph-short {
+        opacity: 1;
+        transition-delay: 0ms, 160ms;
+      }
+      /* Words only in the full text: hidden at rest, leave immediately. */
+      .morph-full {
+        opacity: 0;
+        transition-delay: 0ms, 0ms;
+      }
+      .morph-text-full {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: opacity 200ms var(--ease-out);
+      }
+      .morph-text-short {
+        transition: opacity 200ms var(--ease-out);
+      }
+      /* Expanded state: hover on devices that can hover, plus keyboard focus. */
+      .project-card:focus-visible .morph {
+        height: var(--h-full, auto);
+      }
+      .project-card:focus-visible .morph-tok {
+        transform: translate(var(--bx), var(--by));
+      }
+      .project-card:focus-visible .morph-short,
+      .project-card:focus-visible .morph-text-short {
+        opacity: 0;
+        transition-delay: 0ms, 0ms;
+      }
+      .project-card:focus-visible .morph-full,
+      .project-card:focus-visible .morph-text-full {
+        opacity: 1;
+      }
+      .project-card:focus-visible .morph-full {
+        transition-duration: 300ms, 220ms;
+        transition-delay: 0ms, calc(180ms + var(--stagger, 0ms));
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .project-card:hover .morph {
+          height: var(--h-full, auto);
+        }
+        .project-card:hover .morph-tok {
+          transform: translate(var(--bx), var(--by));
+        }
+        .project-card:hover .morph-short,
+        .project-card:hover .morph-text-short {
+          opacity: 0;
+          transition-delay: 0ms, 0ms;
+        }
+        .project-card:hover .morph-full,
+        .project-card:hover .morph-text-full {
+          opacity: 1;
+        }
+        .project-card:hover .morph-full {
+          transition-duration: 300ms, 220ms;
+          transition-delay: 0ms, calc(180ms + var(--stagger, 0ms));
+        }
+      }
+      /* Touch screens can't hover, so they always get the full description. */
+      @media not all and (hover: hover) and (pointer: fine) {
+        .morph {
+          height: var(--h-full, auto);
+          transition: none;
+        }
+        .morph-tok {
+          transform: translate(var(--bx), var(--by));
+          transition: none;
+        }
+        .morph-short,
+        .morph-text-short {
+          opacity: 0;
+        }
+        .morph-full,
+        .morph-text-full {
+          opacity: 1;
+        }
+      }
+      /* Reduced motion: no sliding, words simply cross-fade into place. */
+      @media (prefers-reduced-motion: reduce) {
+        .morph,
+        .morph-tok {
+          transition-property: opacity;
+        }
+      }
     </style>
 </head>
   <body>
