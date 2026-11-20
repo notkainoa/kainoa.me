@@ -10,9 +10,13 @@ export interface Job {
 export interface Project {
   title: string;
   description: string;
+  /** Optional start of the description, shown at rest; it morphs into `description` on hover. */
+  shortDescription?: string;
   link?: string;
   tech?: string[];
-  category?: 'development' | 'projects' | 'oss';
+  /** Which of the three project columns the card sits in (1 and 2 are Current, 3 is Maintained). */
+  column: 1 | 2 | 3;
+  status?: string;
 }
 
 export interface Social {

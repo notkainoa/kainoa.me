@@ -24,7 +24,7 @@ export const WorkList: React.FC<WorkListProps> = ({ jobs, onCopyEmail }) => {
           const isPlaceholder = !job.start && !job.end;
           const Tag = isYourCompany ? 'a' : (job.link ? 'a' : 'div');
           const linkProps = isYourCompany
-            ? { href: "#", onClick: onCopyEmail }
+            ? { href: job.link, onClick: onCopyEmail }
             : job.link
             ? { href: job.link, target: "_blank", rel: "noopener noreferrer" }
             : {};
@@ -61,7 +61,7 @@ export const WorkList: React.FC<WorkListProps> = ({ jobs, onCopyEmail }) => {
                 </div>
 
                 {job.description && (
-                  <div className={`text-[#8a8a8a] text-[13px] leading-relaxed mt-1.5 ${isPlaceholder ? 'group-hover:text-[#d0d0d0] transition-colors duration-300' : ''}`}>
+                  <div className={`text-[#8a8a8a] text-[13px] leading-relaxed mt-1.5 ${isPlaceholder ? 'group-hover:text-[#d0d0d0] transition-colors duration-300' : ''}`} style={{ fontFeatureSettings: '"kern"' }}>
                     {job.description}
                   </div>
                 )}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import { NAME, TAGLINE, ABOUT, ABOUT_LEAD, EXPERIENCE, PROJECTS, SOCIALS } from './constants';
+import { NAME, ABOUT_LEAD, EXPERIENCE, PROJECTS, SOCIALS } from './constants';
 import { WorkList } from './components/WorkList';
 import { ProjectList } from './components/ProjectList';
 
@@ -17,9 +17,14 @@ const App: React.FC = () => {
 
   const emailAddress = SOCIALS.find((s) => s.name === "Email")?.handle;
 
-  const handleCopyEmail = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleCopyEmail = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.currentTarget.blur();
+    // Cmd/Ctrl-click opens the mail app instead of copying.
+    if ((e.metaKey || e.ctrlKey) && emailAddress) {
+      window.location.href = `mailto:${emailAddress}`;
+      return;
+    }
     setIsEmailTooltipDismissed(true);
     if (!emailAddress) {
       setToast({ message: "Failed to copy email", success: false });
@@ -34,7 +39,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#1A1A1A] text-neutral-200 font-sans text-base selection:bg-neutral-700 selection:text-white" style={{ fontFeatureSettings: '"frac", "kern", "ss02"' }}>
+    <div className="min-h-screen bg-[#1A1A1A] text-neutral-200 font-sans text-base selection:bg-neutral-700 selection:text-white" style={{ fontFeatureSettings: '"kern", "ss02"' }}>
       {/* 
         Main Layout Constraints:
         - max-w-[600px] 
@@ -54,17 +59,24 @@ const App: React.FC = () => {
         {/* About */}
         <section className="animate-in" style={{ animationDelay: '100ms' }}>
           <div className="prose prose-invert prose-neutral max-w-none">
-            <p className="text-[#E5E5E5] leading-[28px] whitespace-pre-line opacity-100">
+            <p className="text-[#E5E5E5] leading-[28px] opacity-100">
               <span className="italic text-[17px] font-normal leading-[28px]" style={{ fontFamily: 'Newsreader, Signifier, Times, serif', fontFeatureSettings: 'normal', color: '#f2f2f2' }}>
                 {ABOUT_LEAD}
               </span>
-              {" "}{ABOUT.trim()}
+              {" "}I'm a student @{' '}
+              <a href="https://www.pitzer.edu/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4">Pitzer College</a>
+              {" "}who's obsessed with making cool software with AI.
+            </p>
+            <p className="text-[#E5E5E5] leading-[28px] mt-7">
+              Designing my own major across the{' '}
+              <a href="https://www.google.com/search?q=claremont+colleges" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4">Claremont Colleges</a>
+              {" "}combining Agentic Software Development and Human Computer Interaction.
             </p>
           </div>
         </section>
 
         {/* Projects */}
-        <section className="mt-7 mb-7 -mx-6 px-6 sm:-mx-16 sm:px-16 animate-in" style={{ animationDelay: '200ms' }}>
+        <section className="mt-7 mb-7 animate-in" style={{ animationDelay: '200ms' }}>
           <ProjectList projects={PROJECTS} />
         </section>
 
@@ -79,12 +91,7 @@ const App: React.FC = () => {
           <h2 className="font-inter text-[#E5E5E5] mb-7 leading-[28px]" style={{ fontFeatureSettings: '"calt", "case", "kern"' }}>Connect</h2>
           <p className="text-[#E5E5E5] leading-[28px]">
             Reach me at{' '}
-            <span className="relative inline-flex group">
-              <a href="https://x.com/kainoabhn" target="_blank" rel="noopener noreferrer" aria-describedby="x-handle-tooltip" className="hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4">@kainoabhn</a>
-              <span id="x-handle-tooltip" role="tooltip" className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-lg border border-neutral-700 bg-neutral-800 px-3 py-1.5 text-sm text-neutral-200 opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
-                X/Twitter
-              </span>
-            </span>
+            <a href="https://x.com/notKainoa" target="_blank" rel="noopener noreferrer" aria-label="notKainoa on X" className="hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="inline-block w-[0.85em] h-[0.85em] align-[-0.2em] mr-px"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>notKainoa</a>
             {' or '}
             <span className="relative inline-flex group" onMouseEnter={() => setIsEmailTooltipDismissed(false)}>
               <button type="button" onClick={handleCopyEmail} aria-label="Copy email address" aria-describedby="email-copy-tooltip" className="cursor-pointer rounded-sm border-0 bg-transparent p-0 text-inherit hover:text-white transition-colors underline decoration-neutral-700 underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400" style={{ font: 'inherit', lineHeight: 'inherit' }}>
@@ -122,10 +129,16 @@ const App: React.FC = () => {
         </section>
         
         {/* Footer */}
-        <footer className="mt-7 pt-12 border-t border-[#404040] flex justify-between items-center text-[#E5E5E5] text-[16px] leading-[28px] animate-in" style={{ animationDelay: '500ms' }}>
-          <span>{NAME}</span>
-          <span>SF
-</span>
+        <footer className="mt-7 pt-12 border-t border-[#404040] flex flex-wrap gap-x-6 gap-y-2 justify-between items-center text-[#E5E5E5] text-[15px] leading-[28px] animate-in" style={{ animationDelay: '500ms' }}>
+          <span className="inline-flex items-center gap-2.5 text-[#9a9a9a]">
+            <span style={{ fontFeatureSettings: '"kern"' }}>&copy; {new Date().getFullYear()}</span>
+            <span className="w-px h-3.5 bg-[#404040]" aria-hidden="true" />
+            <span>{NAME}</span>
+          </span>
+          <a href="https://www.google.com/search?q=san+francisco+weather" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2.5 text-[#6FBF7F] hover:text-[#8FD49D] transition-colors">
+            <span className="w-2 h-2 rounded-full bg-current shadow-[0_0_6px_rgba(111,191,127,0.6)]" aria-hidden="true" />
+            San Francisco, California
+          </a>
         </footer>
 
       </main>

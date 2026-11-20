@@ -2,13 +2,7 @@ import { Job, Project, Social } from './types';
 
 export const NAME = "Kainoa Newton";
 export const TITLE = "Software Engineer";
-export const TAGLINE = "High School Student - Interested in AI Product";
-
-export const ABOUT = `
-I'm a High School Student who's recently been obsessed with AI coding. It's become so easy to prototype new ideas in just minutes!
-
-I've also been building / experimenting a lot with AI Coding Orchestration tools.
-`;
+export const TAGLINE = "College Student - Interested in AI Product";
 
 export const ABOUT_LEAD = "Interested in AI product.";
 
@@ -22,12 +16,20 @@ export const EXPERIENCE: Job[] = [
     link: "mailto:k@kainoa.me"
   },
   {
+    company: "T3 Code",
+    role: "OSS Contributor (unofficial)",
+    start: "Mar 2026",
+    end: "Present",
+    description: "A GUI for orchestrating coding agents. Shipped UI improvements like collapsing long messages by default, and now working on thread snoozing and per-project windows.",
+    link: "https://github.com/pingdotgg/t3code"
+  },
+  {
     company: "Emdash",
     role: "OSS Contributor (unofficial)",
     start: "Oct 2025",
     end: "Feb 2026",
-    description: "Thinking up, designing, and implementing useful features and functionality as an open source contributor.",
-    link: "https://emdash.sh"
+    description: "A desktop app for orchestrating CLI coding agents. Shipped 16 merged PRs, including attaching GitHub issues to workspaces, per-workspace terminal tabs, and a better PR creation flow.",
+    link: "https://github.com/generalaction/emdash"
   },
   {
     company: "Gumloop",
@@ -40,83 +42,97 @@ export const EXPERIENCE: Job[] = [
 ];
 
 export const PROJECTS: Project[] = [
-  // In Development
+  // Column 1 (Current)
   {
-    title: "Raceday",
-    description: "Get suggestions and insights to perform at your best on raceday.",
-    tech: ["Mobile app"],
-    category: "development"
+    title: "Aplos Mail",
+    description: "Only the emails you need to see, one by one. In a beautiful, keyboard-first app. With built-in Calendar and AI.",
+    shortDescription: "Only the emails you need to see, one by one",
+    link: "https://aplos.email",
+    tech: ["Mac app"],
+    column: 1
   },
   {
-    title: "Sleep Share",
-    description: "Strava but for sleep.",
-    link: "https://sleepshare.fun",
+    title: "5C Dining",
+    description: "Beautiful dining hall menus for the Claremont Colleges",
+    shortDescription: "Dining hall menus for 5Cs",
+    link: "https://github.com/notkainoa/5CDining",
     tech: ["Mobile app"],
-    category: "development"
+    column: 1
   },
   {
-    title: "Run Utils",
-    description: "Collection of running related utilities.",
-    tech: ["Mobile app"],
-    category: "development"
+    title: "Rac Browser",
+    description: "Arc + Dia + Aside on top of Helium's speed and privacy. Open source.",
+    shortDescription: "Arc + Dia + Aside, oss",
+    link: "https://racbrowser.com",
+    status: "coming soon",
+    tech: ["Mac app"],
+    column: 1
   },
-  // Projects
+  // Column 2 (Current)
+  {
+    title: "Better T3 Notch",
+    description: "T3 Code status in your notch. Answer, approve or stop your agents without leaving your app.",
+    shortDescription: "T3 Code status in your notch",
+    link: "https://notch.kainoa.me",
+    tech: ["Mac app"],
+    column: 2
+  },
+  {
+    title: "Restless",
+    description: "Keep your Mac awake with the lid closed. Actually! SSH, builds and AI agents keep running.",
+    shortDescription: "Keep your Mac awake, lid closed",
+    link: "https://restless.kainoa.me",
+    tech: ["Mac app"],
+    column: 2
+  },
+  {
+    title: "5C Menu API",
+    description: "The API behind 5C Dining. Menus for all seven dining halls, refreshed every hour. With a CLI and MCP server too.",
+    shortDescription: "The API behind 5C Dining",
+    link: "https://github.com/notkainoa/5CMenuAPI",
+    tech: ["API", "CLI", "MCP"],
+    column: 2
+  },
+  {
+    title: "5C Index",
+    description: "Search courses at the Claremont Colleges from your terminal or agent. A CLI, MCP server and agent skill.",
+    shortDescription: "Search 5C courses from your agent",
+    link: "https://github.com/notkainoa/5C-Index",
+    tech: ["CLI", "MCP"],
+    column: 2
+  },
+  // Column 3 (Maintained)
   {
     title: "kainoa.me",
-    description: "This website.",
+    description: "This website. You're looking at it! Built with React, Vite and Tailwind.",
+    shortDescription: "This website",
     link: "https://github.com/notkainoa/kainoa.me",
     tech: ["Web app"],
-    category: "projects"
+    column: 3
   },
   {
-    title: "Bay Clock",
-    description: "Nice UI your personal school schedule.",
-    link: "https://github.com/lucaskchang/bay-clock-3",
+    title: "More Minimal Twitter",
+    description: "Extension that makes X/Twitter cleaner and more customizable. Hide trends, ads, view counts and Grok.",
+    shortDescription: "Extension that makes X/Twitter cleaner",
+    link: "https://github.com/notkainoa/more-minimal-twitter",
+    tech: ["Browser extension"],
+    column: 3
+  },
+  {
+    title: "Apple Symbol Catalog",
+    description: "Search every Apple SF Symbol in one easy catalog, right in your browser.",
+    shortDescription: "Search every SF Symbol",
+    link: "https://github.com/notkainoa/apple-symbol-catalog",
     tech: ["Web app"],
-    category: "projects"
-  },
-  {
-    title: "Draw",
-    description: "Excalidraw plus but its free and open source.",
-    link: "https://github.com/notkainoa/draw",
-    tech: ["Excalidraw", "Web app"],
-    category: "projects"
-  },
-  {
-    title: "Emblemic",
-    description: "Simple browser-based app icon designer.",
-    link: "https://github.com/notkainoa/Emblemic",
-    tech: ["Web app"],
-    category: "projects"
+    column: 3
   },
   {
     title: "SimplyBuild",
-    description: "Smart CLI wrapper for one-command ios simulator build, deploy, and launch.",
+    description: "One command to build, deploy and launch your iOS app. A smart CLI wrapper around XcodeBuildMCP.",
+    shortDescription: "One command to build your iOS app",
     link: "https://github.com/notkainoa/SimplyBuild",
     tech: ["CLI"],
-    category: "projects"
-  },
-  {
-    title: "more-minimal-twitter",
-    description: "A browser extension that makes X/Twitter cleaner and more customizable.",
-    link: "https://github.com/notkainoa/more-minimal-twitter",
-    tech: ["Browser extension"],
-    category: "projects"
-  },
-  // OSS
-  {
-    title: "T3 Code",
-    description: "A GUI for orchestrating coding agents.",
-    link: "https://github.com/t3dotgg/t3-code",
-    tech: ["VS Code Extension"],
-    category: "oss"
-  },
-  {
-    title: "Emdash",
-    description: "Orchestrate cli coding agents through terminal views.",
-    link: "https://emdash.sh",
-    tech: ["Web app"],
-    category: "oss"
+    column: 3
   }
 ];
 
@@ -133,8 +149,8 @@ export const SOCIALS: Social[] = [
   },
   {
     name: "X/Twitter",
-    url: "https://x.com/kainoabhn",
-    handle: "@kainoabhn"
+    url: "https://x.com/notKainoa",
+    handle: "@notKainoa"
   },
   {
     name: "Email",
