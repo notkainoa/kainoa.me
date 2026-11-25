@@ -107,8 +107,15 @@ export const DescriptionMorph: React.FC<{ short: string; full: string; className
   const shortRef = useRef<HTMLParagraphElement>(null);
   const fullRef = useRef<HTMLParagraphElement>(null);
   const [layout, setLayout] = useState<Layout | null>(null);
+  // The measure layers exist only in the browser. In the prerendered HTML they would
+  // just repeat the description twice more as broken-up words, which is noise for
+  // crawlers and AI tools reading the page as text. Both layout effects run before
+  // the first paint, so visitors never see the in-between state.
+  const [mounted, setMounted] = useState(false);
+  useLayoutEffect(() => setMounted(true), []);
 
   useLayoutEffect(() => {
+    if (!mounted) return;
     const measure = () => {
       const read = (layer: HTMLParagraphElement | null) => {
         if (!layer) return [];
@@ -131,7 +138,7 @@ export const DescriptionMorph: React.FC<{ short: string; full: string; className
     if (rootRef.current) observer.observe(rootRef.current);
     document.fonts?.ready.then(measure).catch(() => {});
     return () => observer.disconnect();
-  }, [shortTokens, fullTokens]);
+  }, [shortTokens, fullTokens, mounted]);
 
   let newWordCount = 0;
 
@@ -146,8 +153,12 @@ export const DescriptionMorph: React.FC<{ short: string; full: string; className
       }
     >
       <span className="sr-only">{full}</span>
-      <MeasureLayer ref={shortRef} tokens={shortTokens} />
-      <MeasureLayer ref={fullRef} tokens={fullTokens} />
+      {mounted && (
+        <>
+          <MeasureLayer ref={shortRef} tokens={shortTokens} />
+          <MeasureLayer ref={fullRef} tokens={fullTokens} />
+        </>
+      )}
 
       {layout ? (
         units.map((u) => {

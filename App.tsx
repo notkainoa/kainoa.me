@@ -131,7 +131,8 @@ const App: React.FC = () => {
         {/* Footer */}
         <footer className="mt-7 pt-12 border-t border-[#404040] flex flex-wrap gap-x-6 gap-y-2 justify-between items-center text-[#E5E5E5] text-[15px] leading-[28px] animate-in" style={{ animationDelay: '500ms' }}>
           <span className="inline-flex items-center gap-2.5 text-[#9a9a9a]">
-            <span style={{ fontFeatureSettings: '"kern"' }}>&copy; {new Date().getFullYear()}</span>
+            {/* The prerendered year comes from build time, so it can differ from the visitor's clock. */}
+            <span style={{ fontFeatureSettings: '"kern"' }} suppressHydrationWarning>&copy; {new Date().getFullYear()}</span>
             <span className="w-px h-3.5 bg-[#404040]" aria-hidden="true" />
             <span>{NAME}</span>
           </span>
