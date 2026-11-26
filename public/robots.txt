@@ -1,0 +1,6 @@
+# Everything on kainoa.me is public. Search engines and AI crawlers
+# (GPTBot, ClaudeBot, PerplexityBot, Google-Extended and others) are welcome.
+User-agent: *
+Allow: /
+
+Sitemap: https://kainoa.me/sitemap.xml

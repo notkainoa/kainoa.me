@@ -1,4 +1,16 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/llms.txt",
+      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ],
   "redirects": [
     { "source": "/github", "destination": "https://github.com/notkainoa", "permanent": false },
     { "source": "/x", "destination": "https://x.com/notKainoa", "permanent": false },
